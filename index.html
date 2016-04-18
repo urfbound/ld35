@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--page styles TODO-->
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<!--page scripts TODO -->
+<script type="text/javascript" src="./js/Game.js"></script>
+<script type="text/javascript" src="./js/GameView.js"></script>
+<!-- local page script -->
+<script type="text/javascript">
+
+var ldGameView;
+var debugMode = true;
+
+function prepGame() {
+	ldGameView = new GameView(debugMode);
+	addResizeListener();
+	addKeyUpListener();
+}
+
+function ldonresize() {
+	ldGameView.windowResizeHandler();
+}
+
+function ldonkeyup(event) {
+	var keyCode = event.keyCode;
+	//if(debugMode) { console.log("Received keyboard input: " + keyCode); }
+	ldGameView.keyUpHandler(keyCode);
+}
+
+var addResizeListener = function() {
+	if(window.attachEvent) { window.attachEvent('onresize', function() { ldonresize() }); }
+	else if(window.addEventListener) { window.addEventListener('resize', function() { ldonresize() }, true); }
+	else { console.error("This browser does not support event listeners. The game cannot be played"); }
+}
+
+var addKeyUpListener = function() {
+	if(window.attachEvent) { window.attachEvent('onkeyup', function() { ldonkeyup(event) }); }
+	else if(window.addEventListener) { window.addEventListener('keyup', function() { ldonkeyup(event) }, true); }
+	else { console.error("This browser does not support event listeners. The game cannot be played"); }
+}
+</script>
+</head>
+<body onload="prepGame()">
+</body>
+</html>

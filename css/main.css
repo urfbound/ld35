@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+canvas {
+	border: thin solid black;
+	margin: 1px;
+	padding: 0px;
+	float: left;
+	clear: both;
+}
+div {
+	border: thin dashed black;
+	float: left;
+	font-family: "Courier New", Courier, monospace;
+}
+div.game {
+	margin: 2px;
+	padding: 1px;
+	width: 98%;
+	height: 98%;
+}
+textarea {
+	margin: 2px;
+	padding:0px;
+	width:98%;
+	height:5em;
+}
